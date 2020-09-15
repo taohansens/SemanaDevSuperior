@@ -6,6 +6,8 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 @Entity
@@ -19,5 +21,7 @@ public class Record {
 	private Integer age;
 	private Instant moment;
 	
+	@ManyToOne
+	@JoinColumn(name="game_id")
 	private Game game;
 }

@@ -1,12 +1,19 @@
 package com.example.dspesquisa.entities;
 
 import java.io.Serializable;
-import java.util.*;
+import java.util.ArrayList;
+import java.util.List;
 
-import javax.persistence.*;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
+import javax.persistence.Table;
 
 import com.example.dspesquisa.entities.enums.Platform;
-import com.fasterxml.jackson.annotation.JsonIgnore;
 
 @Entity
 @Table(name = "tb_game")
@@ -19,14 +26,10 @@ public class Game implements Serializable {
 	private String title;
 	private Platform platform;
 	
-	
-	//Loop Infinito, no insomnia, resolvendo com JsonIgnore no genero e registros
-	@JsonIgnore
 	@ManyToOne
 	@JoinColumn(name="genre_id")
 	private Genre genre;
-	
-	@JsonIgnore
+
 	@OneToMany(mappedBy ="game")
 	private List<Record> records = new ArrayList<>();
 	

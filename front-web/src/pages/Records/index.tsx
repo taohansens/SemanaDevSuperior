@@ -1,11 +1,18 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import axios from 'axios';
+import { RecordsResponse } from './types';
 import "./styles.css";
+import { formatDate } from './helpers';
+
+
+const BASE_URL = 'http://localhost:8080'
 
 const Records = () => {
+    const [ recordsResponse, setRecordsReponse] = useState<RecordsResponse>();
 
     useEffect(() => {
-        console.log("Componente inciado");
+        axios.get(`${BASE_URL}/records?linesPerPage=12`)
+            .then(response => setRecordsReponse(response.data));
     },[]);
 
 
@@ -23,38 +30,16 @@ const Records = () => {
                 </tr>
             </thead>
             <tbody>
-                <tr>
-                    <td>17/09/2020 19:45</td>
-                    <td>TAO HANSEN</td>
-                    <td>30</td>
-                    <td>PC</td>
-                    <td>BATTLE ROYALE</td>
-                    <td>FORTNITE</td>
+                {recordsResponse?.content.map(record => (
+                    <tr key={record.id}>
+                    <td>{formatDate(record.moment)}</td>
+                    <td>{record.name}</td>
+                    <td>{record.age}</td>
+                    <td className="text-secondary">{record.gamePlatform}</td>
+                    <td>{record.genreName}</td>
+                    <td className="text-primary">{record.gameTitle}</td>
                 </tr>
-                <tr>
-                    <td>17/09/2020 19:45</td>
-                    <td>TAO HANSEN</td>
-                    <td>30</td>
-                    <td>PC</td>
-                    <td>BATTLE ROYALE</td>
-                    <td>FORTNITE</td>
-                </tr>
-                <tr>
-                    <td>17/09/2020 19:45</td>
-                    <td>TAO HANSEN</td>
-                    <td>30</td>
-                    <td>PC</td>
-                    <td>BATTLE ROYALE</td>
-                    <td>FORTNITE</td>
-                </tr>
-                <tr>
-                    <td>17/09/2020 19:45</td>
-                    <td>TAO HANSEN</td>
-                    <td>30</td>
-                    <td>PC</td>
-                    <td>BATTLE ROYALE</td>
-                    <td>FORTNITE</td>
-                </tr>
+                ))}
             </tbody>
 
         </table>

@@ -21,3 +21,18 @@ front-web/.env.production.local
 front-web/npm-debug.log*
 front-web/yarn-debug.log*
 front-web/yarn-error.log*
+
+
+front-mobile/node_modules/**/*
+front-mobile/.expo/*
+front-mobile/npm-debug.*
+front-mobile/*.jks
+front-mobile/*.p8
+front-mobile/*.p12
+front-mobile/*.key
+front-mobile/*.mobileprovision
+front-mobile/*.orig.*
+front-mobile/web-build/
+
+# macOS
+front-mobile/.DS_Store

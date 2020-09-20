@@ -1,4 +1,3 @@
-# SemanaDevSuperior
 <h1 align="center">
     <img alt="Semana Dev Superior 1" title="sds1" src=".github/devsuperior.png" width="200px" />
 </h1>

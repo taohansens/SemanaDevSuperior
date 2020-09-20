@@ -2,6 +2,7 @@ import React from 'react';
 import { FontAwesome5 as Icon } from '@expo/vector-icons';
 import {Text, StyleSheet, View, Image, Alert} from 'react-native';
 import { RectButton } from 'react-native-gesture-handler';
+import Header from '../../components/Header';
 
 const Home = () => {
 
@@ -11,6 +12,7 @@ const Home = () => {
 
     return (
         <>
+        <Header />
         <View style={styles.container}>
             <Image
             source={require('../../assets/game.png')}
@@ -23,12 +25,12 @@ const Home = () => {
                 <Text style={styles.buttonText}>
                     COLETAR DADOS
                 </Text>
-            </RectButton>
-        </View>
         <View style={styles.buttonIcon}>
                 <Text>
                     <Icon name="chevron-right" color="#fff" size={25} />
                 </Text>
+        </View>
+        </RectButton>
         </View>
         </>
     )

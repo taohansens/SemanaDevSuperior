@@ -1,34 +1,118 @@
-import React from "react";
-import { Text, StyleSheet, View, TextInput } from "react-native";
+import React, { useState } from "react";
+import { StyleSheet, View, TextInput } from "react-native";
+import { FontAwesome5 as Icon } from '@expo/vector-icons'
 import Header from "../../components/Header";
-import PlatformCard from './PlatformCard';
+import PlatformCard from "./PlatformCard";
+import { GamePlatform } from "./types";
+import RNPickerSelect from 'react-native-picker-select';
+
+const placeholder = {
+    label: 'Selecione o game',
+    value: null
+}
+
 const CreateRecord = () => {
+  const [platform, setPlatform] = useState<GamePlatform>();
+  
+  const [selectedGame, setSelectedGame] = useState('');
+
+  const handChangePlatform = (selectedPlatform: GamePlatform) => {
+    setPlatform(selectedPlatform);
+  };
+
   return (
     <>
       <Header />
       <View style={styles.container}>
         <TextInput
-            style={styles.inputText} 
-            placeholder="Nome"
-            placeholderTextColor="#9E9E9E" />
+          style={styles.inputText}
+          placeholder="Nome"
+          placeholderTextColor="#9E9E9E"
+        />
         <TextInput
-            keyboardType="numeric"
-            maxLength={2}
-            style={styles.inputText}
-            placeholder="Idade"
-            placeholderTextColor="#9E9E9E" />
-      </View>
-      <View style={styles.platformContainer}>
-        <PlatformCard platform="PC" icon="laptop"
-        onChange={() => null} />
-        <PlatformCard platform="XBOX" icon="xbox"
-        onChange={() => null} />
-        <PlatformCard platform="PLAYSTATION" icon="playstation"
-        onChange={() => null} />
+          keyboardType="numeric"
+          maxLength={2}
+          style={styles.inputText}
+          placeholder="Idade"
+          placeholderTextColor="#9E9E9E"
+        />
+
+        <View style={styles.platformContainer}>
+          <PlatformCard
+            platform="PC"
+            icon="laptop"
+            onChange={handChangePlatform}
+            activePlatform={platform}
+          />
+          <PlatformCard
+            platform="XBOX"
+            icon="xbox"
+            onChange={handChangePlatform}
+            activePlatform={platform}
+          />
+          <PlatformCard
+            platform="PLAYSTATION"
+            icon="playstation"
+            onChange={handChangePlatform}
+            activePlatform={platform}
+          />
+        </View>
+        <RNPickerSelect
+            onValueChange={value => {
+                setSelectedGame(value);}}
+            placeholder={placeholder}
+            items={[
+                {label: 'Football', value: 'football'},
+                {label: 'Baseball', value: 'baseball'},
+                {label: 'Hockey', value: 'hockey'},
+                ]
+            }
+            style={pickerSelectedStyles}
+            Icon={() => {
+                return <Icon name="chevron-down" color="#9E9E9E" size={25} />
+            }}
+            />
       </View>
     </>
   );
 };
+
+const pickerSelectedStyles = StyleSheet.create(
+    {
+        inputIOS: {
+          fontSize: 16,
+          paddingVertical: 12,
+          paddingHorizontal: 20,
+          backgroundColor: '#FFF',
+          borderRadius: 10,
+          color: '#ED7947',
+          paddingRight: 30,
+          fontFamily: "Play_700Bold",
+          height: 50
+        },
+        inputAndroid: {
+          fontSize: 16,
+          paddingVertical: 12,
+          paddingHorizontal: 20,
+          backgroundColor: '#FFF',
+          borderRadius: 10,
+          color: '#ED7947',
+          paddingRight: 30,
+          fontFamily: "Play_700Bold",
+          height: 50
+        },
+        placeholder: {
+          color: '#9E9E9E',
+          fontSize: 16,
+          fontFamily: "Play_700Bold",
+        },
+        iconContainer: {
+          top: 10,
+          right: 12,
+        }
+      }
+)
+
 
 const styles = StyleSheet.create({
   container: {

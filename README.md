@@ -29,9 +29,9 @@
 
 Esse projeto Big Game Survey foi desenvolvido com as seguintes tecnologias:
 
-- [Java] (https://openjdk.java.net/)
-- [Spring Framework] (https://spring.io/)
-- [PostgreSQL] (https://www.postgresql.org/)
+- [Java](https://openjdk.java.net/)
+- [Spring Framework](https://spring.io/)
+- [PostgreSQL](https://www.postgresql.org/)
 - [Node.js](https://nodejs.org/en/)
 - [React](https://reactjs.org)
 - [React Native](https://facebook.github.io/react-native/)

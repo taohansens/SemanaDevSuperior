@@ -1,7 +1,7 @@
 {
   "expo": {
-    "name": "front-mobile",
-    "slug": "front-mobile",
+    "name": "Big Game Survey - sds1",
+    "slug": "big-game-survey-sds1",
     "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./assets/icon.png",
@@ -21,6 +21,8 @@
     },
     "web": {
       "favicon": "./assets/favicon.png"
-    }
+    },
+    "description": "Aplicativo desenvolvido durante a Semana Dev Superior 1",
+    "githubUrl": "https://github.com/taohansens/SemanaDevSuperior/tree/master/front-mobile"
   }
 }

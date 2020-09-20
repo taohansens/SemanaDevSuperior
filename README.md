@@ -45,14 +45,14 @@ Front-end web em React e o Backend desenvolvido em Java + Spring com banco de da
 
 ## :heavy_check_mark: Acesso
 
-- [App Web | Netlify Deploy] (https://sdevsuperior1-tao.netlify.app/)
-- [Backend | Heroku] (https://sdevsuperior1-tao.herokuapp.com/)
+- [App Web | Netlify Deploy](https://sdevsuperior1-tao.netlify.app/)
+- [Backend | Heroku](https://sdevsuperior1-tao.herokuapp.com/)
 
 ## 🔖 Layout
 
 Você pode visualizar o layout do projeto no formato através [desse link](https://www.figma.com/file/KT3Z1EgTE6EovJwR4AV43j/BigGameSurvey). (FIGMA).
 
 ## :notebook: Material de Apoio
-- [Github taohansens/sds1 Repo] (https://github.com/taohansens/sds1)
+- [Github taohansens/sds1 Repo](https://github.com/taohansens/sds1)
 
 ---

@@ -13,7 +13,7 @@ const placeholder = {
     value: null
 }
 
-const BASE_URL = 'http://10.0.0.3:8080'
+const BASE_URL = 'https://sdevsuperior1-tao.herokuapp.com';
 
 const mapSelectValues = (games: Game[]) => {
     return games.map(game => ({
